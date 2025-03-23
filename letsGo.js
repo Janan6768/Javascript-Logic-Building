@@ -36,7 +36,7 @@ calculateAreaOfRectangle(1.5,5);
 calculateAreaOfRectangle(1.5,2.5);
 
 // Problem Statement-4
-// write a function that tells  if a given Number is Even or Odd
+// write a function that tells if a given Number is Even or Odd
 function NumberChecker(num1) {
     if (num1 % 2 === 0) console.log(num1, ': Its an Even Number');
     else console.log(num1, ': Its an Odd Number');
@@ -60,10 +60,21 @@ console.log('0 is : ',NumberChecker2(0));
 // write a function that find and print the smallest Number
 // among the 3 Numbers
 function findTheSmallestNumber(num1,num2,num3) {
-    return (num1 === num2 && num2 === num3) ? "All numbers are equal" :
-        (num1<num2 && num1<num3) ? `First Number Is the Smallest ${num1}` :
-        (num2<num1 && num2<num3) ? `Second Number Is the Smallest ${num2}` :
-        `Third Number Is the Smallest ${num3}`;
+    
+    num1 = Number(num1);
+    num2 = Number(num2);
+    num3 = Number(num3);
+
+    if (isNaN(num1) || isNaN(num2) || isNaN(num3))
+        return "Error : Please enter a valid number, not a string.";
+
+    if (num1 === num2 && num2 === num3)
+        return "All Numbers are Equal..."; 
+    
+    return (num1 < num2 && num1 < num3) ? `First Number Is the Smallest: ${num1}`
+    : (num2 < num1 && num2 < num3) ? `Second Number Is the Smallest: ${num2}`
+    :`Third Number Is the Smallest: ${num3}`;
+
 }
 console.log(findTheSmallestNumber(5,7,9));
 console.log(findTheSmallestNumber(7,5,6));
@@ -71,3 +82,7 @@ console.log(findTheSmallestNumber(7,5,3));
 console.log(findTheSmallestNumber(5,5,5));
 console.log(findTheSmallestNumber(5,0,5));
 console.log(findTheSmallestNumber(1.3,2,5));
+console.log(findTheSmallestNumber(-6,-1,5));
+console.log(findTheSmallestNumber('ok',-1,5));
+console.log('----------------------------------');
+
