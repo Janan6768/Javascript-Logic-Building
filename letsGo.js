@@ -97,6 +97,7 @@ function reverseString(inputString){
         // result = result + inputString[i]
         result += inputString[i]
     }
+    
     return result;
 }
 console.log(reverseString('Janan'));
@@ -186,10 +187,12 @@ console.log('isleap Year : (zxc) ',isLeapYear('zxc'));
 console.log('---------------------------------------------');
 
 
-// // problem-statement-9
+// problem-statement-9
 // write a function to calculates and print the sum of the digits
 // of a Given Number e.g : 456 = 4+5+6.
 function calculateSumOfDigits(inputNumber) {
+    if (typeof inputNumber !== 'number') return 'Error: Input must be a number, not a string.';
+
     inputNumber = Number(inputNumber);
 
     if(isNaN (inputNumber)) return 'Not a Number...';
@@ -207,3 +210,36 @@ console.log('Sum Of 99999 => ',calculateSumOfDigits(99999));
 console.log('Sum Of -2.0 => ',calculateSumOfDigits(-2.0));
 console.log('Sum Of 1 => ',calculateSumOfDigits(1));
 console.log('Sum Of -15 => ',calculateSumOfDigits(-15));
+console.log('Sum Of "22" => ',calculateSumOfDigits('22'));
+
+console.log('--------------------------------------------------');
+
+// problem-statement-10
+// write a function that generates and print a multiplication table
+// for a given number up to a specified range
+
+const printMultiplicationTable = (tableOf,tableTill) => {
+    tableOf = Number(tableOf);
+    tableTill = Number(tableTill);
+    
+    if(isNaN(tableOf) || isNaN(tableTill)){
+        console.log('Please Enter a valid Number');
+        return
+    }
+    if (tableOf <= 0 || tableTill <= 0 ) {
+        console.log('Input Value must Be Greater then Zero');
+        return
+    }
+
+    for(i = 1; i <= tableTill; i++ ) {
+    console.log(`${tableOf} x ${i} = ${tableOf * i}`);
+    }
+}
+printMultiplicationTable(2,10)
+printMultiplicationTable(6,5)
+printMultiplicationTable(2.2, 10)
+printMultiplicationTable("3", "10")
+printMultiplicationTable("a",2)
+printMultiplicationTable(0, 10)
+printMultiplicationTable(0, 0)
+
